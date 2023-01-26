@@ -14,20 +14,16 @@ public class PessoaService {
 
 	@Autowired
 	private PessoaResource resource;
-	
-	
-	
-	
-	
+		
 	@Transactional
 	public PessoaDto update(Long id, PessoaDto dto) {
 		Pessoa entity = resource.getReferenceById(id);
 		copyDtoToEntity(dto,entity);
 		entity = resource.save(entity);
 		return new PessoaDto(entity);
-		
-		
+				
 	}
+	
 	
 	public void delete(Long id) {
 		resource.deleteById(id);

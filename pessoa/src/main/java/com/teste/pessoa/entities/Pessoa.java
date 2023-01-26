@@ -66,7 +66,11 @@ public class Pessoa implements Serializable{
 	}
 
 	
-
+/*
+ * INSERT INTO tb_pessoa(endereco_id, nome, dataDeNascimento) VALUES (1, 'Maria', TIMESTAMP WITH TIME ZONE '1994-06-02');
+   INSERT INTO tb_pessoa(endereco_id, nome, dataDeNascimento) VALUES (2, 'luis', TIMESTAMP WITH TIME ZONE '1990-12-04');
+ * 
+ */
 	
 	
 }
