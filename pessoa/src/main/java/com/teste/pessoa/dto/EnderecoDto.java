@@ -1,30 +1,35 @@
-package com.teste.pessoa.entities;
+package com.teste.pessoa.dto;
 
 import java.io.Serializable;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.teste.pessoa.entities.Endereco;
 
-@Entity
-@Table(name = "tb_endereco")
-public class Endereco implements Serializable {
-
+public class EnderecoDto implements Serializable{
+	
 	public static final Long serialVersionID = 1L;
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Long id;
 	public String logradouro;
 	public String cep;
 	public int numero;
 	
-	public Endereco() {
+	public EnderecoDto() {
 		
 	}
 
+	public EnderecoDto(Long id, String logradouro, String cep, int numero) {
+		this.id = id;
+		this.logradouro = logradouro;
+		this.cep = cep;
+		this.numero = numero;
+	}
+	public EnderecoDto(Endereco entity) {
+		this.id = entity.getId();
+		this.logradouro = entity.getLogradouro();
+		this.cep = entity.getCep();
+		this.numero = entity.getNumero();
+	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -56,9 +61,7 @@ public class Endereco implements Serializable {
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
+	
+	
 
-	
-	
-	
-	
 }

@@ -1,38 +1,41 @@
-package com.teste.pessoa.entities;
-
-
+package com.teste.pessoa.dto;
 
 import java.io.Serializable;
 import java.time.LocalDate;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
-@Entity
-@Table(name = "tb_pessoa")
-public class Pessoa implements Serializable{
-	
+import com.teste.pessoa.entities.Endereco;
+import com.teste.pessoa.entities.Pessoa;
+
+public class PessoaDto implements Serializable{
+
 	public static final Long serialVersionID = 1L;
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Long id;
 	public String nome;
 	public LocalDate dataDeNascimento;
-	
-	@ManyToOne
-	@JoinColumn(name = "endereco_id")
 	public Endereco endereco;
 	
-	public Pessoa() {
-		
+	public PessoaDto() {
+
 	}
 
+	public PessoaDto(Long id, String nome, LocalDate dataDeNascimento, Endereco endereco) {
+		this.id = id;
+		this.nome = nome;
+		this.dataDeNascimento = dataDeNascimento;
+		this.endereco = endereco;
+	}
+
+	public PessoaDto(Pessoa entity) {
+		this.id = entity.getId();
+		this.nome = entity.getNome();
+		this.dataDeNascimento = entity.getDataDeNascimento();
+		this.endereco = entity.getEndereco();
+	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -64,9 +67,10 @@ public class Pessoa implements Serializable{
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
-
 	
-
+	
+	
+	
 	
 	
 }
