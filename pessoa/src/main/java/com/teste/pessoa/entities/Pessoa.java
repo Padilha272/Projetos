@@ -3,9 +3,10 @@ package com.teste.pessoa.entities;
 
 
 import java.io.Serializable;
-import java.time.LocalDate;
+
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,17 +22,29 @@ public class Pessoa implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public Long id;
-	public String nome;
-	public LocalDate dataDeNascimento;
+	private Long id;
+	private String nome;
+	private String dataDeNascimento;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "endereco_id")
 	public Endereco endereco;
 	
 	public Pessoa() {
 		
 	}
+		
+	
+
+	public Pessoa(Long id, String nome, String dataDeNascimento, Endereco endereco) {
+		this.id = id;
+		this.nome = nome;
+		this.dataDeNascimento = dataDeNascimento;
+		this.endereco = endereco;
+	}
+
+
+
 
 	public Long getId() {
 		return id;
@@ -49,11 +62,11 @@ public class Pessoa implements Serializable{
 		this.nome = nome;
 	}
 
-	public LocalDate getDataDeNascimento() {
+	public String getDataDeNascimento() {
 		return dataDeNascimento;
 	}
 
-	public void setDataDeNascimento(LocalDate dataDeNascimento) {
+	public void setDataDeNascimento(String dataDeNascimento) {
 		this.dataDeNascimento = dataDeNascimento;
 	}
 
@@ -66,11 +79,7 @@ public class Pessoa implements Serializable{
 	}
 
 	
-/*
- * INSERT INTO tb_pessoa(endereco_id, nome, dataDeNascimento) VALUES (1, 'Maria', TIMESTAMP WITH TIME ZONE '1994-06-02');
-   INSERT INTO tb_pessoa(endereco_id, nome, dataDeNascimento) VALUES (2, 'luis', TIMESTAMP WITH TIME ZONE '1990-12-04');
- * 
- */
+
 	
 	
 }

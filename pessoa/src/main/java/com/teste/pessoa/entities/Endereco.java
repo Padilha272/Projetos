@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -16,14 +17,32 @@ public class Endereco implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public Long id;
-	public String logradouro;
-	public String cep;
-	public int numero;
+	private Long id;
+	private String logradouro;
+	private String cep;
+	private int numero;
+	
+	
+	private Pessoa pessoa;
 	
 	public Endereco() {
 		
 	}
+
+	
+	
+	
+	
+	public Endereco(Long id, String logradouro, String cep, int numero) {
+		this.id = id;
+		this.logradouro = logradouro;
+		this.cep = cep;
+		this.numero = numero;
+	}
+
+
+
+
 
 	public Long getId() {
 		return id;
@@ -56,6 +75,13 @@ public class Endereco implements Serializable {
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
+
+
+	public Pessoa getPessoa() {
+		return pessoa;
+	}
+
+
 
 	
 	
