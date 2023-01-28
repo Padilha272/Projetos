@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.teste.pessoa.dto.PessoaDto;
 import com.teste.pessoa.entities.Pessoa;
-import com.teste.pessoa.resources.PessoaResource;
+import com.teste.pessoa.repositories.PessoaRepository;
 import com.teste.pessoa.service.PessoaService;
 
 
@@ -27,7 +27,7 @@ import com.teste.pessoa.service.PessoaService;
 public class PessoaController {
 	
 	@Autowired
-	private PessoaResource resource;
+	private PessoaRepository resource;
 	
 	@Autowired
 	private PessoaService service;

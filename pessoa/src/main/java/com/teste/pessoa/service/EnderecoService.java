@@ -9,13 +9,13 @@ import com.teste.pessoa.dto.EnderecoDto;
 import com.teste.pessoa.dto.PessoaDto;
 import com.teste.pessoa.entities.Endereco;
 import com.teste.pessoa.entities.Pessoa;
-import com.teste.pessoa.resources.EnderecoResource;
+import com.teste.pessoa.repositories.EnderecoRepository;
 
 @Service
 public class EnderecoService {
 	
 	@Autowired
-	private EnderecoResource resource;
+	private EnderecoRepository resource;
 	
 	
 	
@@ -41,6 +41,7 @@ public class EnderecoService {
 		entity.setLogradouro(dto.getLogradouro());
 		entity.setCep(dto.getCep());
 		entity.setNumero(dto.getNumero());
+		entity.setCidade(dto.getCidade());
 		
 	}
 }

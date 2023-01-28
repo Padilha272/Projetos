@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.teste.pessoa.dto.EnderecoDto;
 import com.teste.pessoa.entities.Endereco;
+import com.teste.pessoa.repositories.EnderecoRepository;
 import com.teste.pessoa.entities.Endereco;
-import com.teste.pessoa.resources.EnderecoResource;
 import com.teste.pessoa.service.EnderecoService;
 
 @RestController
@@ -26,7 +26,7 @@ import com.teste.pessoa.service.EnderecoService;
 public class EnderecoController {
 	
 	@Autowired
-	private EnderecoResource resource;
+	private EnderecoRepository resource;
 	
 	
 	
@@ -58,10 +58,6 @@ public class EnderecoController {
 		
 		return ResponseEntity.noContent().build();
 	}
-	
-	
-	
-	
 	
 	
 	

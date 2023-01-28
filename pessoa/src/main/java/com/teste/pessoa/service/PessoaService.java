@@ -7,13 +7,13 @@ import org.springframework.stereotype.Service;
 
 import com.teste.pessoa.dto.PessoaDto;
 import com.teste.pessoa.entities.Pessoa;
-import com.teste.pessoa.resources.PessoaResource;
+import com.teste.pessoa.repositories.PessoaRepository;
 
 @Service
 public class PessoaService {
 
 	@Autowired
-	private PessoaResource resource;
+	private PessoaRepository resource;
 		
 	@Transactional
 	public PessoaDto update(Long id, PessoaDto dto) {

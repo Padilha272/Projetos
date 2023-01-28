@@ -1,12 +1,10 @@
-package com.teste.pessoa.resources;
+package com.teste.pessoa.repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import com.teste.pessoa.entities.Pessoa;
 
 
 
-public interface PessoaResource extends JpaRepository<Pessoa, Long> {
-	
-	
+public interface PessoaRepository extends JpaRepository<Pessoa, Long> {
 	
 	
 }

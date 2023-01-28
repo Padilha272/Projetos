@@ -3,9 +3,6 @@ package com.teste.pessoa.dto;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-
 import com.teste.pessoa.entities.Endereco;
 import com.teste.pessoa.entities.Pessoa;
 
