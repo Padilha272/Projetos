@@ -3,10 +3,9 @@ package com.teste.pessoa.entities;
 
 
 import java.io.Serializable;
-
+import java.time.LocalDate;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,9 +23,9 @@ public class Pessoa implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
-	private String dataDeNascimento;
+	private LocalDate dataDeNascimento;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne
 	@JoinColumn(name = "endereco_id")
 	public Endereco endereco;
 	
@@ -36,7 +35,7 @@ public class Pessoa implements Serializable{
 		
 	
 
-	public Pessoa(Long id, String nome, String dataDeNascimento, Endereco endereco) {
+	public Pessoa(Long id, String nome, LocalDate dataDeNascimento, Endereco endereco) {
 		this.id = id;
 		this.nome = nome;
 		this.dataDeNascimento = dataDeNascimento;
@@ -62,11 +61,11 @@ public class Pessoa implements Serializable{
 		this.nome = nome;
 	}
 
-	public String getDataDeNascimento() {
+	public LocalDate getDataDeNascimento() {
 		return dataDeNascimento;
 	}
 
-	public void setDataDeNascimento(String dataDeNascimento) {
+	public void setDataDeNascimento(LocalDate dataDeNascimento) {
 		this.dataDeNascimento = dataDeNascimento;
 	}
 

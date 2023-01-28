@@ -1,10 +1,7 @@
 package com.teste.pessoa.dto;
 
 import java.io.Serializable;
-
-
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import java.time.LocalDate;
 
 import com.teste.pessoa.entities.Endereco;
 import com.teste.pessoa.entities.Pessoa;
@@ -15,14 +12,14 @@ public class PessoaDto implements Serializable{
 	
 	public Long id;
 	public String nome;
-	public String dataDeNascimento;
+	public LocalDate dataDeNascimento;
 	public Endereco endereco;
 	
 	public PessoaDto() {
 
 	}
 
-	public PessoaDto(Long id, String nome, String dataDeNascimento, Endereco endereco) {
+	public PessoaDto(Long id, String nome, LocalDate dataDeNascimento, Endereco endereco) {
 		this.id = id;
 		this.nome = nome;
 		this.dataDeNascimento = dataDeNascimento;
@@ -52,11 +49,11 @@ public class PessoaDto implements Serializable{
 		this.nome = nome;
 	}
 
-	public String getDataDeNascimento() {
+	public LocalDate getDataDeNascimento() {
 		return dataDeNascimento;
 	}
 
-	public void setDataDeNascimento(String dataDeNascimento) {
+	public void setDataDeNascimento(LocalDate dataDeNascimento) {
 		this.dataDeNascimento = dataDeNascimento;
 	}
 

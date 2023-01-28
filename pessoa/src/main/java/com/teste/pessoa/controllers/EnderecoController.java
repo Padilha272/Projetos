@@ -63,10 +63,6 @@ public class EnderecoController {
 	
 	
 	
-	
-	
-	
-	
 	@PostMapping
 	public Endereco insert (@Valid @RequestBody Endereco endereco) {
 		Endereco result = resource.save(endereco);
